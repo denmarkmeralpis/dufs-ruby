@@ -37,7 +37,7 @@ module Dufs
 
     def connection
       @connection ||= Faraday.new(url: @base_url) do |conn|
-        conn.request :basic_auth, @user, @pass
+        conn.request :authorization, :basic, @user, @pass
         conn.adapter Faraday.default_adapter
       end
     end
