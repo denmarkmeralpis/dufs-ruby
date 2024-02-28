@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.bindir = "exe"
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
-  spec.add_dependency 'faraday', '~> 1.10'
+  spec.add_dependency 'faraday', '~> 2.9'
   spec.add_development_dependency 'byebug'
 
   # Uncomment to register a new dependency of your gem
