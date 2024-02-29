@@ -17,7 +17,22 @@ If bundler is not being used to manage dependencies, install the gem by executin
 **Authenticate**
 
 ```ruby
+# Create an instance of the DUFS API client.
+# You can instantiate the client by passing credentials directly or by using environment variables.
+
+# Using credentials directly:
 api = Dufs::Api.new(user: 'user', pass: 'pass', url: 'http://1.2.3.4:5001/ns')
+
+# Using environment variables:
+# - DUFS_USER: Username for DUFS authentication
+# - DUFS_PASS: Password for DUFS authentication
+# - DUFS_URL: URL of the DUFS API
+# Example:
+#   export DUFS_USER=user
+#   export DUFS_PASS=pass
+#   export DUFS_URL=http://1.2.3.4:5001/namespace
+#   api = Dufs::Api.new
+
 
 # check if authenticated
 api.authenticated? # => true

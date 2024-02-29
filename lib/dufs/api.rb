@@ -8,11 +8,11 @@ require_relative 'apis/lists'
 
 module Dufs
   class Api
-    def initialize(user:, pass:, url:)
+    def initialize(options = {})
       Faraday::Connection::METHODS.merge([:mkcol, :move])
-      @user = user
-      @pass = pass
-      @url = url
+      @user = options.fetch(:user, ENV['DUFS_USER'])
+      @pass = options.fetch(:user, ENV['DUFS_PASS'])
+      @url = options.fetch(:url, ENV['DUFS_URL'])
     end
 
     def authorized?
