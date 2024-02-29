@@ -27,7 +27,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
   spec.add_dependency 'faraday', '~> 2.9'
   spec.add_development_dependency 'webmock', '~> 3.23'
-  spec.add_development_dependency 'byebug'
 
   # Uncomment to register a new dependency of your gem
   # spec.add_dependency "example-gem", "~> 1.0"
