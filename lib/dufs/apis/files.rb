@@ -19,6 +19,13 @@ module Dufs
         parse(response)
       end
 
+      def exists?(path)
+        data = Dufs::Apis::Lists.new(@connection).search(File.basename(path))
+        !data['paths'].empty?
+      rescue Dufs::FileOrDirNotFound
+        false
+      end
+
       def delete(file)
         response = @connection.delete(file)
         parse(response)
