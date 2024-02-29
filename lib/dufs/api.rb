@@ -8,11 +8,11 @@ require_relative 'apis/lists'
 
 module Dufs
   class Api
-    def initialize(user:, pass:, base_url:)
+    def initialize(user:, pass:, url:)
       Faraday::Connection::METHODS.merge([:mkcol, :move])
       @user = user
       @pass = pass
-      @base_url = base_url
+      @url = url
     end
 
     def authorized?
@@ -36,9 +36,8 @@ module Dufs
     private
 
     def connection
-      @connection ||= Faraday.new(url: @base_url) do |conn|
+      @connection ||= Faraday.new(url: @url) do |conn|
         conn.request :authorization, :basic, @user, @pass
-        conn.adapter Faraday.default_adapter
       end
     end
   end

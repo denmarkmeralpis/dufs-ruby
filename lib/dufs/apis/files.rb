@@ -11,17 +11,22 @@ module Dufs
         @connection = connection
       end
 
-      def upload(path)
+      def upload(file, path)
         response = @connection.put(path) do |req|
-          req.body = File.read(path)
+          req.body = File.read(file)
         end
 
         parse(response)
       end
 
+      def delete(file)
+        response = @connection.delete(file)
+        parse(response)
+      end
+
       def download(path)
         response = @connection.get(path)
-        return response if parse(response)
+        return response.body if parse(response)
       end
     end
   end
