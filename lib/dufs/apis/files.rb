@@ -20,7 +20,7 @@ module Dufs
       end
 
       def exists?(path)
-        data = Dufs::Apis::Lists.new(@connection).search(File.basename(path))
+        data = Dufs::Apis::Lists.new(@connection).search(File.basename(path.to_s))
         !data['paths'].empty?
       rescue Dufs::FileOrDirNotFound
         false
