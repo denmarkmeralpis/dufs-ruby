@@ -11,7 +11,7 @@ module Dufs
     def initialize(options = {})
       Faraday::Connection::METHODS.merge([:mkcol, :move])
       @user = options.fetch(:user, ENV['DUFS_USER'])
-      @pass = options.fetch(:user, ENV['DUFS_PASS'])
+      @pass = options.fetch(:pass, ENV['DUFS_PASS'])
       @url = options.fetch(:url, ENV['DUFS_URL'])
     end
 
